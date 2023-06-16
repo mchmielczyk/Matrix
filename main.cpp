@@ -1,39 +1,65 @@
 #include "matrix.h"
+#include <iostream>
+#include <cassert>
+
 int main() {
-    Matrix<int> m1(2, 2); // tworzenie macierzy 3x3
+    // Test matrix creation and indexing
+    Matrix<int> m1(2, 2);
     m1[0][0] = 1;
     m1[0][1] = 2;
     m1[1][0] = 4;
     m1[1][1] = 5;
+    assert(m1[0][0] == 1);
+    assert(m1[0][1] == 2);
+    assert(m1[1][0] == 4);
+    assert(m1[1][1] == 5);
 
-    Matrix<double> m2(2, 2); // tworzenie macierzy 3x3
-    m2[0][0] = 7.6;
-    m2[0][1] = 8.7;
-    m2[1][0] = 10.8;
-    m2[1][1] = 11.9;
-    Matrix<double> m3 = m1 * m2; // mno¿enie macierzy
-    std::cout << "Wynik mno¿enia m1 i m2:" << std::endl;
-    std::cout << m3 << std::endl;
+    // Test matrix equality
+    Matrix<int> m2 = m1;
+    assert(m1 == m2);
 
-    Matrix<double> m4 = Transpose(m1); // transpozycja macierzy
-    std::cout << "Transpozycja m1:" << std::endl;
-    std::cout << m4 << std::endl;
+    // Test matrix addition
+    Matrix<int> m3 = m1 + m2;
+    Matrix<int> expectedAddition(2, 2);
+    expectedAddition[0][0] = 2;
+    expectedAddition[0][1] = 4;
+    expectedAddition[1][0] = 8;
+    expectedAddition[1][1] = 10;
+    assert(m3 == expectedAddition);
 
-    Matrix<double> m5 = Inverse(m1); // macierz odwrotna
-    std::cout << "Macierz odwrotna do m1:" << std::endl;
-    std::cout << m5 << std::endl;
+    // Test matrix multiplication
+    Matrix<int> m4(2, 2);
+    m4[0][0] = 1;
+    m4[0][1] = 2;
+    m4[1][0] = 3;
+    m4[1][1] = 4;
+    Matrix<int> m5 = m1 * m4;
+    Matrix<int> expectedMultiplication(2, 2);
+    expectedMultiplication[0][0] = 7;
+    expectedMultiplication[0][1] = 10;
+    expectedMultiplication[1][0] = 19;
+    expectedMultiplication[1][1] = 28;
+    assert(m5 == expectedMultiplication);
 
-    Matrix<double> m6 = m1 + m2; // dodawanie macierzy
-    std::cout << "Wynik dodawania m1 i m2:" << std::endl;
-    std::cout << m6 << std::endl;
+    // Test matrix scalar multiplication
+    Matrix<int> m6 = m1 * 2;
+    Matrix<int> expectedScalarMultiplication(2, 2);
+    expectedScalarMultiplication[0][0] = 2;
+    expectedScalarMultiplication[0][1] = 4;
+    expectedScalarMultiplication[1][0] = 8;
+    expectedScalarMultiplication[1][1] = 10;
+    assert(m6 == expectedScalarMultiplication);
 
-    Matrix<double> m7 = m1 - m2; // odejmowanie macierzy
-    std::cout << "Wynik odejmowania m1 i m2:" << std::endl;
-    std::cout << m7 << std::endl;
+    // Test matrix transposition
+    Matrix<int> m7 = Transpose(m1);
+    Matrix<int> expectedTranspose(2, 2);
+    expectedTranspose[0][0] = 1;
+    expectedTranspose[0][1] = 4;
+    expectedTranspose[1][0] = 2;
+    expectedTranspose[1][1] = 5;
+    assert(m7 == expectedTranspose);
 
-    Matrix<double> m8 = m1 * 2; // mno¿enie macierzy przez skalar
-    std::cout << "Mno¿enie m1 przez 2:" << std::endl;
-    std::cout << m8 << std::endl;
+    std::cout << "All tests passed!" << std::endl;
 
     return 0;
 }
