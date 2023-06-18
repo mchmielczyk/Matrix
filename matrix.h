@@ -49,7 +49,7 @@ public:
 
     T* operator[](int num);  // Array subscript operator overload
     Matrix<T> operator*(int scalar);    // Scalar multiplication operator overload
-    friend std::ostream& operator<<<T>(std::ostream& os, Matrix& M);    // Output stream operator overload
+    friend std::ostream& operator<<(std::ostream& os, Matrix& M);    // Output stream operator overload
 };
 
 // Default constructor implementation
