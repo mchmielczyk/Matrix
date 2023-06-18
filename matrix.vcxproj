@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.props" Condition="Exists('packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.props')" />
+  <Import Project="packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.props" Condition="Exists('packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -128,13 +130,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="matrix.cpp" />
-    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="matrix.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.targets" Condition="Exists('packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.targets')" />
+    <Import Project="packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.targets" Condition="Exists('packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.props'))" />
+    <Error Condition="!Exists('packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\vcpkg.D.repos.VCPKG.vcpkg.1.0.0\build\native\vcpkg.D.repos.VCPKG.vcpkg.targets'))" />
+    <Error Condition="!Exists('packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.props'))" />
+    <Error Condition="!Exists('packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\vcpkg.D.repos.Prata.matrix.packages.vcpkg.1.0.0\build\native\vcpkg.D.repos.Prata.matrix.packages.vcpkg.targets'))" />
+  </Target>
 </Project>

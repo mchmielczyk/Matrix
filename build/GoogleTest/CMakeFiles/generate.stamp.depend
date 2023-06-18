@@ -1,0 +1,13 @@
+# CMake generation dependency list for this directory.
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/CMakeCInformation.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/CMakeDependentOption.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/Compiler/MSVC-C.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/Compiler/MSVC.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/GNUInstallDirs.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/Platform/Windows-MSVC-C.cmake
+D:/cmake-3.25.1-windows-x86_64/share/cmake-3.25/Modules/Platform/Windows-MSVC.cmake
+D:/repos/Prata/matrix/build/CMakeFiles/3.25.1/CMakeCCompiler.cmake
+D:/repos/Prata/matrix/googletest/CMakeLists.txt

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Prata\matrix\build\CMakeFiles\8d919da902c4ec39d1b1680fdcce3471\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C10D9208-6A07-3EC1-A9CA-E77D73E6C5D1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
